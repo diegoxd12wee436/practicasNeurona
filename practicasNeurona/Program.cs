@@ -90,12 +90,12 @@ using practicasNeurona.Mes1.Clases.PracticaConVectores;
 /// <summary> CLASE DE VECTORES PRUEBA DIA 3</summary>
 /// 
 
-Vector v1 = new Vector(1, 2, 3);
-Vector v2 = new Vector(4, 5, 6);
+Vector v1 = new Vector(1, 6, 3);
+Vector v2 = new Vector(10, 5, 6);
 
 double num = v1.ProductoPunto(v2);
 Vector vsum = v1.Sumar(v2);
-Console.Write("producto punto es  :" + num +"y la suma de ambos da {" + vsum.ToString() +  " }");
+Console.Write("producto punto es  :" + num +" y la suma de ambos da " + vsum.ToString());
 //
 
 
