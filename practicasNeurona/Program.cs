@@ -96,9 +96,30 @@ Vector v2 = new Vector(10, 5, 6);
 double num = v1.ProductoPunto(v2);
 Vector vsum = v1.Sumar(v2);
 Console.Write("producto punto es  :" + num +" y la suma de ambos da " + vsum.ToString());
+
+
 //
+Console.WriteLine("\n\n\n");
+//martreiz 2x2
+double[,] m1 =
+{
+    {1,2 },
+    {3,4 }
+};
+
+double[,] m2 =
+{
+    {5,6},
+    {8,9}
+};
+
+Matriz matrizA = new Matriz(m1);
+Matriz matrizB = new Matriz(m2);
 
 
+
+string text = matrizA.ToString() + " " + matrizB.ToString()+ " = " + matrizA.Sumar(m2);
+Console.WriteLine(text);
 
 
 

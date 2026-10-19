@@ -50,7 +50,7 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
             int cantVector1 = numerosVector.Length;
             int cantVector2 = v.numerosVector.Length;
 
-            if (cantVector1 != cantVector2) return 0; //osea fallo
+            if (cantVector1 != cantVector2) throw new ArgumentException("Fallo vectores con distintos rangos de numeros no se pueden multiplicar"); //osea fallo
 
             //variables a usar
             double productoPunto = 0;
