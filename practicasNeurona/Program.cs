@@ -95,7 +95,7 @@ using practicasNeurona.Mes1.Clases.PracticaConVectores;
 
 //double num = v1.ProductoPunto(v2);
 //Vector vsum = v1.Sumar(v2);
-//Console.Write("producto punto es  :" + num +" y la suma de ambos da " + vsum.ToString());
+//Console.Write("producto punto es  :" + num + " y la suma de ambos da " + vsum.ToString());
 
 
 ////
@@ -118,23 +118,30 @@ using practicasNeurona.Mes1.Clases.PracticaConVectores;
 
 
 
-//string text = matrizA.ToString() + " " + matrizB.ToString()+ " = " + matrizA.Sumar(m2);
+//string text = matrizA.ToString() + " " + matrizB.ToString() + " = " + matrizA.Sumar(matrizB);
 //Console.WriteLine(text);
 
-Console.WriteLine(Activaciones.Sigmoide(1));
-Console.WriteLine();
-Console.WriteLine(Activaciones.Sigmoide(10));
-Console.WriteLine();
-Console.WriteLine(Activaciones.Sigmoide(0));
-Console.WriteLine();
-Console.WriteLine(Activaciones.Sigmoide(-1));
+//Console.WriteLine(Activaciones.Sigmoide(1));
+//Console.WriteLine();
+//Console.WriteLine(Activaciones.Sigmoide(10));
+//Console.WriteLine();
+//Console.WriteLine(Activaciones.Sigmoide(0));
+//Console.WriteLine();
+//Console.WriteLine(Activaciones.Sigmoide(-1));
 
-Console.WriteLine(Activaciones.Sigmoide(1000));
-Console.WriteLine();
-Console.WriteLine(Activaciones.Sigmoide(20));
-Console.WriteLine();
-Console.WriteLine(Activaciones.Sigmoide(-20));
+//Console.WriteLine(Activaciones.Sigmoide(1000));
+//Console.WriteLine();
+//Console.WriteLine(Activaciones.Sigmoide(20));
+//Console.WriteLine();
+//Console.WriteLine(Activaciones.Sigmoide(-20));
 
+double[] pesos =
+{
+    5,-3
+};
 
+double[] inputs = { 1, 1 };
 
-
+Neurona n = new Neurona(pesos, -2);
+double result = n.ProductoPunto(inputs);
+Console.WriteLine(result);
