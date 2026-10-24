@@ -142,6 +142,14 @@ double[] pesos =
 
 double[] inputs = { 1, 1 };
 
-Neurona n = new Neurona(pesos, -2);
-double result = n.ProductoPunto(inputs);
-Console.WriteLine(result);
+
+for(int i = -10; i <= 10; i += 2)
+{
+    Neurona n = new Neurona(pesos, i);
+    double result = n.ProductoPunto(inputs);
+    Console.WriteLine(result);
+    Console.WriteLine();
+
+}
+
+
