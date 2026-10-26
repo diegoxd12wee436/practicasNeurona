@@ -19,23 +19,23 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
         }
 
 
-        public double ProductoPunto(double[] inputs)
+        public double Salida(double[] inputs)
         {
             if (inputs.Length != Pesos.Length) throw new ArgumentException("No tinen los mismos indices");
 
-            double productoPunto = 0 ;
+            double salidaNeurona = 0 ;
             for(int i = 0 ; i < Pesos.Length; i++)
             {
-                productoPunto += Pesos[i] * inputs[i];
+                salidaNeurona += Pesos[i] * inputs[i];
             }
 
             //sumo el sesgo
 
-            productoPunto += Sesgo;
+            salidaNeurona += Sesgo;
             //aqui ya no seria solo producto pu to si no el resultado nose como se lle llama 
-            productoPunto = Activaciones.Sigmoide(productoPunto);
+            salidaNeurona = Activaciones.Sigmoide(salidaNeurona);
 
-            return productoPunto ;
+            return salidaNeurona ;
         }
 
     }

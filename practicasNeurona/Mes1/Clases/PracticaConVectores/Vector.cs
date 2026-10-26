@@ -44,7 +44,7 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
             
         }
 
-        public double ProductoPunto( Vector v)
+        public double salidaNeurona( Vector v)
         {
             //verificacion de que sean compatibles
             int cantVector1 = numerosVector.Length;
@@ -53,15 +53,15 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
             if (cantVector1 != cantVector2) throw new ArgumentException("Fallo vectores con distintos rangos de numeros no se pueden multiplicar"); //osea fallo
 
             //variables a usar
-            double productoPunto = 0;
+            double salidaNeurona = 0;
 
             for (int i = 0; i < cantVector1;i++)
             {
-                productoPunto += v.numerosVector[i] * numerosVector[i];
+                salidaNeurona += v.numerosVector[i] * numerosVector[i];
             }
             
             
-            return productoPunto;
+            return salidaNeurona;
         }
 
         public override string ToString()
