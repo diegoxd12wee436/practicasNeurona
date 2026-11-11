@@ -7,7 +7,7 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
 {
     public class Vector
     {
-        private double[] numerosVector;
+        public double[] numerosVector;
 
 
 
