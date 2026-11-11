@@ -23,11 +23,15 @@ using practicasNeurona.Mes1.Clases.PracticaConVectores;
 
 //}
 
-Vector vprueba = new Vector(1, 2, 3, 4, 5);
+Vector vinputs = new Vector(1, 1);
 
-Console.WriteLine(vprueba.numerosVector.Length);
+Console.WriteLine("Inputs cantidad: " + vinputs.numerosVector.Length);
+
+Vector vSesgos = new Vector(-3, -7,0);
 
 
 
-Matriz mPrueba = new Matriz(new double[,] { { 1, 2, 3, 4, 5 }, { 6, 7, 8, 9, 10 } });
-Console.WriteLine(mPrueba.SalidaCapa(vprueba));
+Matriz mPrueba = new Matriz(new double[,] { { 1, 2 }, { 3,4 } ,{ 5,6 } });
+
+
+Console.WriteLine("Salida: " + Activaciones.Sigmoide(vSesgos.Sumar(mPrueba.SalidaCapa(vinputs))));

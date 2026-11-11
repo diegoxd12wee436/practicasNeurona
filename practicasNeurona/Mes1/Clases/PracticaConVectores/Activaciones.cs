@@ -15,6 +15,18 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
             return 1 /( 1 +  Math.Exp(-x));            
         }
 
+        public static Vector Sigmoide(Vector v)
+        {
+            int cantVector = v.numerosVector.Length;
+            double[] vectorSigmoides = new double[cantVector];
+
+            for(int i = 0; i < cantVector; i++)
+            {
+                vectorSigmoides[i] = Sigmoide(v.numerosVector[i]);
+            }
+            return new Vector(vectorSigmoides);
+        }
+
 
         //Funcion de derivada para savcar cuanto influye  el cambio de Bias
 

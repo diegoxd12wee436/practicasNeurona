@@ -39,7 +39,7 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
             {
                 //no hace nada retornara un 1 para decir que es true osea fallo xd
 
-                return new Vector(0); 
+                throw new ArgumentException("FALLO VECTORES CON DISTINTOS RANGOS DE NUMEROS NO SE PUEDEN SUMAR");
             }
             
         }
