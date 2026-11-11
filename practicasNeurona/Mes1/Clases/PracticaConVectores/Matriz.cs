@@ -6,7 +6,7 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
 {
     public class Matriz
     {
-        double[,] M { get; }
+        public double[,] M { get; }
         
 
         public Matriz(double[,] matriz)
@@ -66,6 +66,8 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
             return new Matriz(suma);
 
         }
+
+        //obtener el length de la matriz 
 
         public override string ToString()
         {
