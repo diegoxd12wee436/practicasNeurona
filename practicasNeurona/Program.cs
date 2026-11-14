@@ -33,5 +33,6 @@ Vector vSesgos = new Vector(-3, -7,0);
 
 Matriz mPrueba = new Matriz(new double[,] { { 1, 2 }, { 3,4 } ,{ 5,6 } });
 
+Capa salida = new Capa(mPrueba, vSesgos);
 
-Console.WriteLine("Salida: " + Activaciones.Sigmoide(vSesgos.Sumar(mPrueba.SalidaCapa(vinputs))));
+Console.WriteLine("Salida: " +  salida.CapaOutput(vinputs));
