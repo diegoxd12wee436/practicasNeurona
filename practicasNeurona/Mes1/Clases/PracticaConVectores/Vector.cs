@@ -44,6 +44,26 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
             
         }
 
+        /// <summary>
+        /// Crear sesgos aleatorios 
+        /// </summary>
+        /// 
+        
+
+        public static Vector CrearSesgos(int cantVector)
+        {
+            double[] sesgos = new double[cantVector];
+
+            for (int i = 0; i < cantVector; i++)
+            {
+                sesgos[i] = Random.Shared.NextDouble() * 2 -1; //genera un numero entre -1 y 1
+            }
+            return new Vector(sesgos);
+        }
+        
+        
+
+
         public double salidaNeurona( Vector v)
         {
             //verificacion de que sean compatibles

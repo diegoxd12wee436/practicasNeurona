@@ -4,35 +4,28 @@ using System.Runtime.Intrinsics;
 using practicasNeurona.Mes1.Clases.PracticaConVectores;
 
 
-//double[] pesos =
-//{
-//    5,-3
-//};
+var inputs = new Vector(3, 4, 2);
+Console.WriteLine("Inputs cantidad: " + inputs.numerosVector.Length);
 
-//double[] inputs = { 1, 1 };
+Matriz NeuronasCapa1 = Matriz.CrearMatriz(4, 3);
+Vector SesgosCapa1 = Vector.CrearSesgos(4);
+
+Capa capa1 = new Capa(NeuronasCapa1, SesgosCapa1);
+
+Vector SalidaCapa1 = capa1.CapaOutput(inputs);
+
+Console.WriteLine("Salida Capa 1: " + SalidaCapa1);
+
+//capa 2
+Matriz NeuronasCapa2 = Matriz.CrearMatriz(3, 4);
+Vector SesgosCapa2 = Vector.CrearSesgos(3);
+
+Capa capa2 = new Capa(NeuronasCapa2, SesgosCapa2);
+
+Vector SalidaCapa2 = capa2.CapaOutput(SalidaCapa1);
 
 
-//for(int i = -10; i <= 10; i += 2)
-//{
-//    Neurona n = new Neurona(pesos, i);
-//    double result = n.Salida(inputs);
-
-//    Console.WriteLine($"Iteracion {i}");
-//    Console.WriteLine("Salida: " + result);    
-//    Console.WriteLine("Sigmoide + derivada : " + Activaciones.Derivada(result));
-
-//}
-
-Vector vinputs = new Vector(1, 1);
-
-Console.WriteLine("Inputs cantidad: " + vinputs.numerosVector.Length);
-
-Vector vSesgos = new Vector(-3, -7,0);
+Console.WriteLine("Salida Capa 2: " + SalidaCapa2);
 
 
 
-Matriz mPrueba = new Matriz(new double[,] { { 1, 2 }, { 3,4 } ,{ 5,6 } });
-
-Capa salida = new Capa(mPrueba, vSesgos);
-
-Console.WriteLine("Salida: " +  salida.CapaOutput(vinputs));

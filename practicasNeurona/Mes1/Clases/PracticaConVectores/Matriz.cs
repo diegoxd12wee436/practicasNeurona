@@ -67,6 +67,27 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
 
         }
 
+
+
+
+        /// <summary>
+        /// Generar una matriz de las neuronas con sus pesos 
+        /// </summary>
+        /// <returns> Matriz de pesos y neuronas {filass} </returns>
+        public static Matriz CrearMatriz(int filas, int columnas)
+        {
+            double[,] MatrizDePesos = new double[filas, columnas];
+
+            for (int i = 0; i < filas; i++)
+            {
+                for(int j = 0 ; j <columnas; j++)
+                {
+                    MatrizDePesos[i, j] = Random.Shared.NextDouble() * 2 - 1; //genera un numero entre -1 y 1
+                }
+            }
+            return new Matriz(MatrizDePesos);
+        }
+
         //obtener el length de la matriz 
 
         public override string ToString()
