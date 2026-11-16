@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace practicasNeurona.Mes1.Clases.PracticaConVectores
+namespace practicasNeurona.Mes1.Clases.PracticaConVectores.Tools
 {
     //mi cajn de herramientas xd
     public static class Activaciones
