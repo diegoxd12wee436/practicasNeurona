@@ -46,4 +46,7 @@ Console.WriteLine("Salida Capa 3 final : " + SalidaFinal);
 Console.WriteLine("ERROR LOSS DE LA SALIDA MSE: " + Losses.LossMSE(SalidaFinal, new Vector(0, 0, 0, 0)));
 
 
+Console.WriteLine("erorr de prueba loss : " + Losses.LossMSE(new Vector(0.3, 0.8), new Vector(0, 0)));
+
+
 
