@@ -46,8 +46,44 @@ Console.WriteLine("Salida Capa 3 final : " + SalidaFinal);
 Console.WriteLine("ERROR LOSS DE LA SALIDA MSE: " + Losses.LossMSE(SalidaFinal, new Vector(0, 0, 0, 0)));
 
 
-Console.WriteLine("erorr de prueba loss : " + Losses.LossMSE(new Vector(0.3, 0.8), new Vector(0, 0)));
+
 
 
 var capas = new List<Capa> { capa1, capa2, capa3 };
 Console.WriteLine(Losses.CalcularLoss(capas, inputs, new Vector(0, 0, 0, 0)));
+
+
+
+//primero el flujo sacar un peso  sacar el  loss original  ver modificado e incluso el w modificado y el original
+
+//modificacion
+double h = 0.1;
+
+double originalLoss = Losses.CalcularLoss(capas , inputs, new Vector(0, 0, 0, 0));
+
+double originalWeigth = capa1.Pesos.M[0, 0];
+
+
+capa1.Pesos.M[0,0] = originalWeigth + h;
+double modifiedWeigth = capa1.Pesos.M[0, 0];
+
+double modifiedLoss = Losses.CalcularLoss(capas,inputs , new Vector(0, 0, 0, 0));
+
+capa1.Pesos.M[0,0] = originalWeigth;
+
+//derivada
+
+double derivada  = (modifiedLoss - originalLoss) / h;  
+
+Console.WriteLine("================================");
+Console.WriteLine("Peso original: " + originalWeigth);
+Console.WriteLine("Peso modificado: " + modifiedWeigth);
+Console.WriteLine("Loss original : " + originalLoss);
+Console.WriteLine("Loss modificado : " + modifiedLoss);
+
+double lossRestaurddo = Losses.CalcularLoss(capas, inputs, new Vector(0, 0, 0, 0));
+
+Console.WriteLine("Loss restaurado" + lossRestaurddo);
+
+
+
