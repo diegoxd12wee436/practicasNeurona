@@ -49,4 +49,5 @@ Console.WriteLine("ERROR LOSS DE LA SALIDA MSE: " + Losses.LossMSE(SalidaFinal, 
 Console.WriteLine("erorr de prueba loss : " + Losses.LossMSE(new Vector(0.3, 0.8), new Vector(0, 0)));
 
 
-
+var capas = new List<Capa> { capa1, capa2, capa3 };
+Console.WriteLine(Losses.CalcularLoss(capas, inputs, new Vector(0, 0, 0, 0)));

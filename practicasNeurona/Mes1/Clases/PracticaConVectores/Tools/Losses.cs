@@ -7,7 +7,19 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores.Tools
     public static class Losses
     {
 
-
+        //
+        public static double CalcularLoss (List<Capa> capas , Vector inputs, Vector objetivo)
+        {
+            //propagacion hacia adelante
+            Vector salida = inputs;
+            foreach (Capa capa in capas)
+            {
+                salida = capa.CapaOutput(salida);
+            }
+            //calcular el loss
+            double loss = LossMSE(salida, objetivo);
+            return loss;
+        }
 
 
         //loss de error cuadratico medio
