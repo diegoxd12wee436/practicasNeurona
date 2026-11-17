@@ -6,4 +6,10 @@ Lista de cosas que he aprendido hasta ahora:
 - Matrices
 - Neuronas
 - Sigmoide  (funcion de activacion)
+- Capas neuronales.
+- Propagación hacia adelante (Forward Propagation).
+- Funciones de pérdida (Loss).
+- Error cuadrático medio (MSE).
+- Retropropagación (Backpropagation).
+- Descenso del gradiente (Gradient Descent).
 
