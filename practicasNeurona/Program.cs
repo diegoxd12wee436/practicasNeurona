@@ -87,3 +87,33 @@ Console.WriteLine("Loss restaurado" + lossRestaurddo);
 
 
 
+///practica nueva
+///
+var gradientes = Losses.CalcularGradientesPesos(capas, inputs, new Vector(0, 0, 0, 0));
+
+for(int count = 0; count < capas.Count; count++ )
+{
+    Console.WriteLine($"Datos de la capa : {count + 1}");
+
+    Console.WriteLine("--Matriz de gradients--");
+
+    int filas = gradientes[count].M.GetLength(0);
+    int columnas = gradientes[count].M.GetLength(1);
+
+    //ahora muestro los gradientes de cada neurona de la capa
+    for(int i = 0; i < filas; i++)
+    {
+        Console.WriteLine($"Peso de neurona {i + 1}");
+        for(int j = 0; j <columnas;j++)
+        {
+
+            Console.WriteLine($"Columna{j} {gradientes[count].M[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+
+    
+}
+
+
+Console.ReadKey();

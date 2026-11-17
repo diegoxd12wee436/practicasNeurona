@@ -47,6 +47,60 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores.Tools
 
 
 
+        //calcular derivada de todos los weigth de todas las capas
+
+        public static List<Matriz> CalcularGradientesPesos(List<Capa> capas, Vector input , Vector Objetivo , double h  = 0.1)
+        {
+
+            //el loss original 
+            double lossBase = Losses.CalcularLoss(capas, input, Objetivo);
+
+            List<Matriz> Gradients = new List<Matriz>();
+
+            //sacar los valores originales de los pesos y del loss
+            //recorres las capas y guardas los pesos originales en una lista de matrices
+
+            foreach(Capa c in capas)
+            {
+                int filas  = c.Pesos.M.GetLength(0); //equivaldria a una neurona cada fila
+                int columnas = c.Pesos.M.GetLength(1);
+
+
+                double[,] GradientesCapa = new double[filas, columnas];
+
+
+
+
+                for (int i = 0; i < filas; i++)
+                {
+                    for(int j = 0; j < columnas; j++)
+                    {
+                        //comento porque si no la canteo 
+                        //aqui guardo el valor actual del peso (w)
+                        double actualWeight = c.Pesos.M[i, j];
+
+
+                        //lo modifico como un temp
+                        c.Pesos.M[i, j] = actualWeight + h;
+
+                        double nuevoLoss = CalcularLoss(capas, input, Objetivo);
+
+                        //lo regreso a la normalidad
+                        c.Pesos.M[i, j] = actualWeight;
+
+                        //saco la derivada (gradientes) 
+                        GradientesCapa[i, j] = (nuevoLoss - lossBase) / h;                    
+                    }
+
+                }
+                Gradients.Add(new Matriz(GradientesCapa));
+            }            
+            return Gradients;
+
+
+        }
+
+
 
     }
 }
