@@ -23,7 +23,12 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
 
         public Vector CapaOutput(Vector inputs)
         {
-            return Activaciones.Sigmoide(Sesgo.Sumar(Pesos.SalidaCapa(inputs)));
+            return Activaciones.Sigmoide(SumaPonderada(inputs));
+        }
+
+        public Vector SumaPonderada(Vector inputs)
+        {
+            return Sesgo.Sumar(Pesos.SalidaCapa(inputs));
         }
 
 
