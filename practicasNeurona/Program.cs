@@ -57,7 +57,7 @@ Console.WriteLine(Losses.CalcularLoss(capas, inputs, new Vector(0, 0, 0, 0)));
 //primero el flujo sacar un peso  sacar el  loss original  ver modificado e incluso el w modificado y el original
 
 //modificacion
-double h = 0.1;
+double h = 0.001;
 
 double originalLoss = Losses.CalcularLoss(capas , inputs, new Vector(0, 0, 0, 0));
 
@@ -116,4 +116,11 @@ for(int count = 0; count < capas.Count; count++ )
 }
 
 
+//practica 3  llevo 7 horas aquiii
+Console.WriteLine("Loss antes de hacer el decenso gradiente: " + Losses.CalcularLoss(capas,inputs, new Vector(0, 0, 0, 0)));
+
+Losses.ActualizarPesos(capas, gradientes, 0.1);
+
+
+Console.WriteLine("Loss DESPUES de hacer el decenso gradiente: " + Losses.CalcularLoss(capas, inputs, new Vector(0, 0, 0, 0)));
 Console.ReadKey();

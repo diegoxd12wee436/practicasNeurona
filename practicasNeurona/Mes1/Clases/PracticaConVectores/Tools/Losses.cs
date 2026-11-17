@@ -49,7 +49,7 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores.Tools
 
         //calcular derivada de todos los weigth de todas las capas
 
-        public static List<Matriz> CalcularGradientesPesos(List<Capa> capas, Vector input , Vector Objetivo , double h  = 0.1)
+        public static List<Matriz> CalcularGradientesPesos(List<Capa> capas, Vector input , Vector Objetivo , double h  = 0.001)
         {
 
             //el loss original 
@@ -98,6 +98,28 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores.Tools
             return Gradients;
 
 
+        }
+
+        //actualizar pesos
+        public static void ActualizarPesos(List<Capa>  capas , List<Matriz> gradientes , double LearningRate)
+        {
+            if (capas.Count != gradientes.Count)
+                throw new ArgumentException("La cantidad de capas no coinside con la cantidad de gradientes (osea su conjunto de derviads parcial no es la correcta)");
+
+            //recorrer cada capa
+            for(int c = 0; c < capas.Count; c++)
+            {
+                int rows = capas[c].Pesos.M.GetLength(0);
+                int columns = capas[c].Pesos.M.GetLength(1);
+
+                for(int i = 0; i < rows; i++)
+                {
+                    for(int j = 0; j < columns; j++)
+                    {
+                        capas[c].Pesos.M[i, j] -= gradientes[c].M[i, j] * LearningRate;
+                    }
+                }
+            }
         }
 
 
