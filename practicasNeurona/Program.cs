@@ -89,6 +89,5 @@ Losses.ActualizarPesos(capas, gradientes, 0.1);
 
 
 Console.WriteLine("Loss DESPUES de hacer el decenso gradiente: " + Losses.CalcularLoss(capas, inputs, new Vector(0, 0, 0, 0)));
-Console.ReadKey();
 
 Console.WriteLine(Losses.BackPropagation(capas, inputs, new Vector(0, 0, 0, 0)));
