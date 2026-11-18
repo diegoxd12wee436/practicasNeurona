@@ -9,6 +9,10 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores.Tools
         //backpropagation
         public static (List<Matriz> GradientPesos, List<Vector> GradientSesgos) BackPropagation(List<Capa> capas, Vector inputs, Vector objetivo)
         {
+
+            //numero de capas de la red
+            int numeroCapas = capas.Count;
+
             //variables a retornar los ocntenedores del los gradientes por capa
 
             List<Matriz> Gpesos = new List<Matriz>();
@@ -16,7 +20,39 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores.Tools
 
             //guarda las salidas de cada capa
 
-            Vector salidasCapas = ForwardPropagation(capas, inputs);
+            List<Vector> SalidasCapas = new List<Vector>() { inputs };
+            Vector salidacapasTemp = inputs;
+
+            //recorre todas las capas uuy guarda cada salida en un lista
+            foreach(Capa c in capas)
+            {
+                salidacapasTemp = c.CapaOutput(salidacapasTemp);
+                SalidasCapas.Add(salidacapasTemp);
+            }
+
+            //el delta por cada neurona
+            Vector salidaFinal = SalidasCapas[numeroCapas];
+
+            int cantidadNeuronas = salidaFinal.numerosVector.Length;
+
+            double[] delta = new double[cantidadNeuronas];
+
+            for (int i = 0; i < cantidadNeuronas; i++)
+            {
+                double salidaPeso = salidaFinal.numerosVector[i];
+
+                double diff = salidaPeso - objetivo.numerosVector[i];
+
+                delta[i] = 2 * diff / cantidadNeuronas * Activaciones.Derivada(salidaPeso);
+            }
+
+            foreach(var d in delta)
+            {
+                Console.WriteLine(d);
+            }
+
+
+            
 
 
             
