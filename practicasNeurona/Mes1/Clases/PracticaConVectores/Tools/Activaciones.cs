@@ -35,6 +35,8 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores.Tools
             return salida * (1 - salida);
         }
 
+
+
         
 
 

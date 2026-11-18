@@ -32,6 +32,9 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores
         }
 
 
+      
+        
+
 
     }
 }

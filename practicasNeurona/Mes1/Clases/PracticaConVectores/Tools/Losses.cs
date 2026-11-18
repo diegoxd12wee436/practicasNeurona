@@ -6,16 +6,45 @@ namespace practicasNeurona.Mes1.Clases.PracticaConVectores.Tools
 {
     public static class Losses
     {
+        //backpropagation
+        public static (List<Matriz> GradientPesos, List<Vector> GradientSesgos) BackPropagation(List<Capa> capas, Vector inputs, Vector objetivo)
+        {
+            //variables a retornar los ocntenedores del los gradientes por capa
 
+            List<Matriz> Gpesos = new List<Matriz>();
+            List<Vector> Gsesgos = new List<Vector>();
+
+            //guarda las salidas de cada capa
+
+            Vector salidasCapas = ForwardPropagation(capas, inputs);
+
+
+            
+           
+
+            return (Gpesos,Gsesgos);
+        }
+
+        
+
+        //propagacion adelante
+
+        public static Vector ForwardPropagation(List<Capa> capas, Vector inputs)
+        {
+            Vector salida = inputs;
+            foreach (Capa c in capas)
+            {
+                salida = c.CapaOutput(salida);
+            }
+            return salida;
+        }
         //
-        public static double CalcularLoss (List<Capa> capas , Vector inputs, Vector objetivo)
+        public static double CalcularLoss (List<Capa> capas, Vector inputs,Vector objetivo)
         {
             //propagacion hacia adelante
-            Vector salida = inputs;
-            foreach (Capa capa in capas)
-            {
-                salida = capa.CapaOutput(salida);
-            }
+
+            Vector salida = ForwardPropagation(capas, inputs);
+           
             //calcular el loss
             double loss = LossMSE(salida, objetivo);
             return loss;
